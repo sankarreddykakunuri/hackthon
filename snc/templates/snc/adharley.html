@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Auction Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .auction-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .auction-item h2 {
+            color: #007bff;
+            margin: 0;
+        }
+
+        .auction-item img {
+            width: 100%; /* Responsive image */
+            max-width: 500px; /* Max width for large screens */
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .auction-item p {
+            margin: 10px 0;
+        }
+
+        .remaining-time {
+            font-size: 1.2rem;
+            color: #ff4500;
+            font-weight: bold;
+        }
+
+        .bids {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .advantages {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .advantages h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .history-table th, .history-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .history-table th {
+            background-color: #f8f9fa;
+        }
+
+        .bidding-form {
+            margin-top: 20px;
+        }
+
+        .bidding-form input {
+            padding: 10px;
+            width: 100px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .bidding-form button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bidding-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="auction-item">
+    <h2>Auction Item: Harley-Davidson 1946 Model</h2>
+    <img src="{% static 'snc/images/harley1946.png' %}" alt="Harley-Davidson 1946 Model">
+    <p><strong>Current Bid:</strong> Rs <span id="current-bid">750,000</span></p>
+    <p class="remaining-time">Remaining Time: <span id="time">02:30:00</span></p>
+    <p class="bids">Number of Bids: <span id="bid-count">4</span></p>
+
+    <div class="advantages">
+        <h3>Product Advantages</h3>
+        <ul>
+            <li><strong>Classic Design:</strong> The Harley-Davidson 1946 Model features timeless styling that appeals to vintage motorcycle enthusiasts, embodying the essence of classic American motorcycle design.</li>
+        <li><strong>Quality Craftsmanship:</strong> Known for its high-quality materials and attention to detail, this model is built to last, providing riders with a reliable and durable motorcycle.</li>
+        <li><strong>Strong Community:</strong> Owning a Harley-Davidson means joining a passionate community of riders, offering opportunities for camaraderie and shared experiences at events and rallies.</li>
+        <li><strong>Investment Value:</strong> Classic motorcycles like the 1946 model often appreciate in value over time, making them not just a means of transport but also a potential investment for collectors.</li>
+    </ul>
+    </div>
+
+    <div class="bidding-history">
+        <h3>Bidding History</h3>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Bidder</th>
+                    <th>Bid Amount</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="bidding-history">
+                <tr>
+                    <td>John Doe</td>
+                    <td>Rs 500,000</td>
+                    <td>2024-09-10 10:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Rs 600,000</td>
+                    <td>2024-09-10 11:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Sam Wilson</td>
+                    <td>Rs 700,000</td>
+                    <td>2024-09-10 12:15 PM</td>
+                </tr>
+                <tr>
+                    <td>Sarah Sindh</td>
+                    <td>Rs 750,000</td>
+                    <td>2024-09-10 12:45 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bidding-form">
+        <h3>Place Your Bid</h3>
+        <input type="number" id="bid-amount" placeholder="Enter your bid" min="750001" required>
+        <button id="bid-button">Bid</button>
+    </div>
+</div>
+
+<script>
+    let timeRemaining = 2 * 60 * 60; // 2 hours in seconds
+    const timeElement = document.getElementById('time');
+    const currentBidElement = document.getElementById('current-bid');
+    const bidCountElement = document.getElementById('bid-count');
+    const biddingHistoryElement = document.getElementById('bidding-history');
+    let bidCount = parseInt(bidCountElement.textContent);
+
+    function updateTime() {
+        const hours = Math.floor(timeRemaining / 3600);
+        const minutes = Math.floor((timeRemaining % 3600) / 60);
+        const seconds = timeRemaining % 60;
+
+        timeElement.textContent = ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')};
+
+        if (timeRemaining > 0) {
+            timeRemaining--;
+        } else {
+            clearInterval(timer);
+            timeElement.textContent = "Auction Ended";
+        }
+    }
+
+    const timer = setInterval(updateTime, 1000);
+
+    document.getElementById('bid-button').addEventListener('click', function() {
+        const bidAmount = parseInt(document.getElementById('bid-amount').value);
+        if (bidAmount > parseInt(currentBidElement.textContent.replace(/,/g, ''))) {
+            const bidderName = 'You'; // You can customize this to get the actual bidder's name
+            const currentTime = new Date().toLocaleString();
+
+            // Update current bid and bid count
+            currentBidElement.textContent = bidAmount.toLocaleString();
+            bidCount++;
+            bidCountElement.textContent = bidCount;
+
+            // Update bidding history
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = <td>${bidderName}</td><td>Rs ${bidAmount.toLocaleString()}</td><td>${currentTime}</td>;
+            biddingHistoryElement.appendChild(newRow);
+
+            // Clear input
+            document.getElementById('bid-amount').value = '';
+        } else {
+            alert("Your bid must be higher than the current bid.");
+        }
+    });
+</script>
+
+</body>
+</html>

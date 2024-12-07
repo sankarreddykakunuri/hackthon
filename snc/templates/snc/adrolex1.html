@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Auction: Rolex Submariner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .auction-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .auction-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .auction-item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .auction-item img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .details {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+        .details h3 {
+            color: #007bff;
+        }
+        .details p {
+            line-height: 1.6;
+        }
+        .auction-timer {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .additional-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="auction-container">
+    <div class="auction-header">
+        <h2>Upcoming Auction: Rolex Submariner</h2>
+    </div>
+    <div class="auction-item">
+        <img src="{% static 'snc/images/rolex1.png' %}" alt="Rolex Submariner">
+        <div class="details">
+            <h3>Product: Rolex Submariner</h3>
+            <p><strong>Description:</strong> The Rolex Submariner is a classic luxury diving watch, renowned for its precision, durability, and timeless design. With a water-resistant Oyster case, unidirectional rotatable bezel, and a highly legible Chromalight display, this watch is perfect for both underwater adventures and everyday wear.</p>
+            <p><strong>Start Time:</strong> Tomorrow 12:00 PM</p>
+            <p><strong>End Time:</strong> Tomorrow 3:00 PM</p>
+            <p class="auction-timer">Bidding has not started yet. The auction will begin at 12:00 PM tomorrow.</p>
+
+            <p><strong>Highlights:</strong></p>
+            <ul>
+                <li>Oystersteel case, 40mm diameter, unidirectional rotatable bezel.</li>
+                <li>300 meters (1,000 feet) water resistance.</li>
+                <li>Perpetual, mechanical, self-winding movement.</li>
+                <li>Black Cerachrom bezel insert and black dial with large luminescent hour markers.</li>
+                <li>Scratch-resistant sapphire crystal.</li>
+                <li>Rolex's signature Oyster bracelet with Glidelock system for comfort adjustment.</li>
+            </ul>
+
+            <div class="additional-info">
+                <h4>Additional Information</h4>
+                <p><strong>Model Year:</strong> 2021</p>
+                <p><strong>Color:</strong> Black and Silver</p>
+                <p><strong>Movement:</strong> Automatic</p>
+                <p><strong>Power Reserve:</strong> 70 hours</p>
+                <p><strong>Material:</strong> Oystersteel</p>
+                <p><strong>Location:</strong> Mumbai, India</p>
+            </div>
+
+            <div class="additional-info">
+                <h4>History of Rolex Submariner</h4>
+                <p>The Rolex Submariner was first introduced in 1953, marking a major milestone in the world of diving watches. Over the decades, it has evolved to incorporate Rolex's latest innovations in waterproofing and precision, while maintaining its status as a symbol of luxury and performance. The Submariner is beloved by divers, collectors, and watch enthusiasts around the world.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

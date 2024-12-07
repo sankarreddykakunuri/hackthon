@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Item Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .item-image {
+            text-align: center;
+        }
+
+        .item-image img {
+            width: 100%; /* Responsive image */
+            max-width: 500px; /* Max width for large screens */
+            border-radius: 8px;
+        }
+
+        .details, .history {
+            margin-top: 20px;
+        }
+
+        .details h2, .history h2 {
+            color: #007bff;
+        }
+
+        .details p, .history p {
+            margin: 0.5rem 0;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .history-table th, .history-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .history-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Auction Item Details</h1>
+    <div class="item-image">
+        <img src="{% static 'snc/images/car1.png' %}" alt="Lamborghini">
+    </div>
+
+    <div class="details">
+        <h2>Product: Lamborghini</h2>
+        <p><strong>Description:</strong> A luxury Rolex watch featuring automatic movement, water resistance, and a stylish black dial.</p>
+        <p><strong>Condition:</strong> Least Used</p>
+        <p class="price">Final Bid: Rs 15,000,000</p>
+    </div>
+
+    <div class="history">
+        <h2>Bidding History</h2>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Bidder</th>
+                    <th>Bid Amount</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>Rs 10,000,000</td>
+                    <td>2024-09-10 10:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Rs 11,500,000</td>
+                    <td>2024-09-10 11:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Sam Wilson</td>
+                    <td>Rs 12,000,000</td>
+                    <td>2024-09-10 12:15 PM</td>
+                </tr>
+                <tr>
+                    <td>Sarah Sindh</td>
+                    <td>Rs 15,000,000</td>
+                    <td>2024-09-10 12:45 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

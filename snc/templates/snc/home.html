@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Auctions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            background-color: #ff6600;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .hero {
+            background: url({% static 'snc/images/auction2nd.jpg' %}) no-repeat center center/cover;
+            height: 660px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-left: 50px;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            max-width: 500px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero a {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+        .container {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .features, .how-it-works, .testimonials, .cta {
+            margin-bottom: 50px;
+        }
+        .features h2, .how-it-works h2, .testimonials h2, .cta h2 {
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+        .features .feature, .how-it-works .step, .testimonials .testimonial {
+            margin-bottom: 20px;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .cta {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .cta a {
+            color: #fff;
+            text-decoration: none;
+            background-color: #ff6600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .product {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 200px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Real-Time Auctions</h1>
+        <nav>
+            <a href='/login'>Login</a>
+            <a href='/register'>Register</a>
+        </nav>
+    </header>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Real-Time Auctions!</h1>
+            <p>Join us and start bidding on exclusive items today.</p>
+            <a href='/register'>Sign Up Now</a>
+        </div>
+    </div>
+    <div class="container">
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Real-Time Bidding</h3>
+                <p>Bid in real-time and watch the action unfold live.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure Transactions</h3>
+                <p>All transactions are secure and encrypted for your safety.</p>
+            </div>
+            <div class="feature">
+                <h3>Diverse Categories</h3>
+                <p>Find auctions in a wide range of categories.</p>
+            </div>
+        </section>
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="step">
+                <h3>Step 1: Sign Up</h3>
+                <p>Create an account to start bidding.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2: Browse Auctions</h3>
+                <p>Explore live, upcoming, and closed auctions.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3: Place Your Bid</h3>
+                <p>Bid on your favorite items and win amazing deals.</p>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"This platform is amazing! I won a rare collectible at a great price."</p>
+                <p>- Ramesh Swain</p>
+            </div>
+            <div class="testimonial">
+                <p>"The real-time bidding feature is so exciting. Highly recommend!"</p>
+                <p>- Swadhin Biswal</p>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h2>Some of Our Rare Products</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="{% static 'snc/images/watch1.png' %}" alt="Rolex">
+                    <h3>Rolex</h3>
+                    <p>Luxury timepiece with exceptional craftsmanship.</p>
+                </div>
+                <div class="product">
+                    <img src="{% static 'snc/images/sneaker1.png' %}" alt="Limited Edition Sneakers">
+                    <h3>Limited Edition Sneakers</h3>
+                    <p>Get your hands on this exclusive release.</p>
+                </div>
+                <div class="product">
+                    <img src="{% static 'snc/images/rareart1.png' %}" alt="Rare Art Piece">
+                    <h3>Rare Art Piece</h3>
+                    <p>A unique artwork that will elevate your collection.</p>
+                </div>
+                <div class="product">
+                    <img src="{% static 'snc/images/vguitar1.png' %}" alt="Vintage Guitar">
+                    <h3>Vintage Guitar</h3>
+                    <p>A classic instrument with rich history and sound.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <h2>Ready to Join the Action?</h2>
+            <a href='/register'>Sign Up Now</a>
+        </section>
+    </div>
+    <footer>
+        <p>© 2024 Real-Time Auctions. All rights reserved.</p>
+        <nav>
+            <a href='/hcontactus'>Contact Us</a>
+            <a href='/haboutus'>About Us</a>
+            <a href='/hprivacypolicy'>Privacy Policy</a>
+            <a href='/hterms'>Terms of Service</a>
+        </nav>
+    </footer>
+</body>
+</html>

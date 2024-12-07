@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .categories-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            min-width: 150px;
+            margin-top: 10px;
+        }
+
+        .categories-dropdown a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .categories-dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .slider-heading {
+            margin-top: 60px;
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        /* Common slider style for Top Bids, Live Auctions, Upcoming Auctions, and Closed Auctions */
+        .slider, .upcoming-auctions-slider, .auction-list {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .slider .slide, .upcoming-auctions-slider .auction-item, .auction-list .auction-item {
+            display: inline-block;
+            background-color: #ddd;
+            padding: 1rem;
+            margin-right: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            width: 250px; /* Fixed size for consistency */
+            text-align: center;
+            text-decoration: none; /* Removes underline from anchor */
+            color: inherit; /* Keeps text color consistent */
+        }
+
+        .slider .slide:hover, .upcoming-auctions-slider .auction-item:hover, .auction-list .auction-item:hover {
+            transform: scale(1.05);
+        }
+
+        .slider .slide img, .upcoming-auctions-slider .auction-item img, .auction-list .auction-item img {
+            width: 200px; /* Fixed image size */
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .details p {
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Bidding Platform</div>
+            <ul>
+                <li>
+                    <a href="#" id="categories-link" onclick="toggleDropdown()">Categories</a>
+                    <div id="categories-dropdown" class="categories-dropdown">
+                        <a href="/category/electronics">Electronics</a>
+                        <a href="/category/automobiles">Automobiles</a>
+                        <a href="/category/jewelry">Jewelry</a>
+                        <a href="/category/art-collectibles">Art & Collectibles</a>
+                        <a href="/category/real-estate">Real Estate</a>
+                    </div>
+                </li>
+                <li><a href="/buser1">My Account</a></li>
+                <li><a href="/hcontactus">Contact Us</a></li>
+                <li><a href="/">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <div class="slider-heading">Top Bids</div>
+    <section class="slider">
+        <a href="/adharley" class="slide">
+            <img src="{% static 'snc/images/harley1946.png' %}" alt="Harley">
+            <p>Harley-Davidson</p>
+        </a>
+        <a href="/adrolex1" class="slide">
+            <img src="{% static 'snc/images/rolex1.png' %}" alt="Rolex">
+            <p>Rolex</p>
+        </a>
+        <a href="/adthar1" class="slide">
+            <img src="{% static 'snc/images/thar1.png' %}" alt="Thar">
+            <p>Thar</p>
+        </a>
+        <a href="/adlamborghini1" class="slide">
+            <img src="{% static 'snc/images/car1.png' %}" alt="Vintage Car">
+            <p>Lamborghini</p>
+        </a>
+    </section>
+    <div class="slider-heading">Upcoming Auctions</div>
+    <section class="upcoming-auctions-slider">
+        <a class="auction-item" href="/adrolex1">
+            <img src="{% static 'snc/images/rolex1.png' %}" alt="Rolex">
+            <div class="details">
+                <p>Product: Rolex</p>
+                <p>Opening Price: Rs 500,000</p>
+            </div>
+        </a>
+        <a class="auction-item" href="/adguitar1">
+            <img src="{% static 'snc/images/vguitar1.png' %}" alt="Thar">
+            <div class="details">
+                <p>Product: Guitar</p>
+                <p>Opening Price: Rs 1,599,000</p>
+            </div>
+        </a>
+        <a class="auction-item" href="/adrareart1">
+            <img src="{% static 'snc/images/rareart1.png' %}" alt="rareart">
+            <div class="details">
+                <p>Product: Rare Art</p>
+                <p>Opening Price: Rs 1,500,000</p>
+            </div>
+        </a>
+        <a class="auction-item" href="/adsneaker1">
+            <img src="{% static 'snc/images/sneaker1.png' %}" alt="sneaker">
+            <div class="details">
+                <p>Product: Sneakers</p>
+                <p>Opening Price: Rs 1,900,000</p>
+            </div>
+        </a>
+        <a class="auction-item" href="/adhermesh1">
+            <img src="{% static 'snc/images/hermeshb1.png' %}" alt="hermeshb1">
+            <div class="details">
+                <p>Product: Hermesh Bag</p>
+                <p>Opening Price: Rs 1,734,000</p>
+            </div>
+        </a>
+        <a class="auction-item" href="/adthar1">
+            <img src="{% static 'snc/images/thar1.png' %}" alt="Vintage">
+            <div class="details">
+                <p>Product: Modified thar </p>
+                <p>Opening Price: Rs 3,500,000</p>
+            </div>
+        </a>
+    </section>
+
+    <main>
+        <div class="auctions">
+            <h2>Live Auctions</h2>
+            <div class="auction-list">
+                <a class="auction-item" href="/adharley">
+                    <img src="{% static 'snc/images/harley1946.png' %}" alt="hondarc30">
+                    <div class="details">
+                        <p>Product: Harley Davidson</p>
+                        <p>Highest Bid: Rs 4,500,000</p>
+                    </div>
+                </a>
+                <a class="auction-item" href="/adwatch1">
+                    <img src="{% static 'snc/images/watch1.png' %}" alt="Rolex">
+                    <div class="details">
+                        <p>Product: Omega Submariner</p>
+                        <p>Highest Bid: Rs 2,300,000</p>
+                    </div>
+                </a>
+                <a class="auction-item" href="/adnecklace1">
+                    <img src="{% static 'snc/images/coinnecklace1.png' %}" alt="Coin Necklace">
+                    <div class="details">
+                        <p>Product: Coin Necklace</p>
+                        <p>Highest Bid: Rs 2,999,000</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="auctions">
+            <h2>Closed Auctions</h2>
+            <div class="auction-list">
+                <a class="auction-item" href="/adhondarc30">
+                    <img src="{% static 'snc/images/hondarc301.png' %}" alt="Mahindra Thar">
+                    <div class="details">
+                        <p>Product: Honda RC 30</p>
+                        <p>Sold Price: Rs 1,600,000</p>
+                        <p>Buyer: Sonu Sharma</p>
+                    </div>
+                </a>
+                <a class="auction-item" href="/adlamborghini1">
+                    <img src="{% static 'snc/images/car1.png' %}" alt="Vintage Car">
+                    <div class="details">
+                        <p>Product: Lamborghini</p>
+                        <p>Sold Price: Rs 5,000,000</p>
+                        <p>Buyer: Aman Rout</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>&copy; 2024 My Bidding Platform. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="/hprivacypolicy">Privacy Policy</a>
+            <a href="/hterms">Terms of Service</a>
+            <a href="/hcontactus">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('categories-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('#categories-link')) {
+                var dropdowns = document.getElementsByClassName("categories-dropdown");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

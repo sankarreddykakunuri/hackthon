@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Online Auction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .section label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .section input,
+        .section select,
+        .section button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .section button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .section button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Settings</h1>
+
+    <!-- Account Settings -->
+    <div class="section">
+        <h2>Account Settings</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" value="JohnDoe" disabled>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" value="johndoe@example.com">
+
+        <button>Update Account Details</button>
+    </div>
+
+    <!-- Notification Preferences -->
+    <div class="section">
+        <h2>Notification Preferences</h2>
+        <label for="notifications">Receive Email Notifications:</label>
+        <select id="notifications">
+            <option value="all">All Notifications</option>
+            <option value="bids">Only Bids and Auctions</option>
+            <option value="none">No Notifications</option>
+        </select>
+
+        <button>Save Notification Preferences</button>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="section">
+        <h2>Payment Methods</h2>
+        <label for="payment-method">Preferred Payment Method:</label>
+        <select id="payment-method">
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank-transfer">Bank Transfer</option>
+        </select>
+
+        <button>Update Payment Method</button>
+    </div>
+
+    <!-- Privacy Settings -->
+    <div class="section">
+        <h2>Privacy Settings</h2>
+        <label for="profile-visibility">Profile Visibility:</label>
+        <select id="profile-visibility">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="friends-only">Friends Only</option>
+        </select>
+
+        <button>Save Privacy Settings</button>
+    </div>
+</div>
+
+</body>
+</html>

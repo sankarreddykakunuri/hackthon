@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ auction.title }} - Auction Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>{{ auction.title }}</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ auction.image_url }}" alt="{{ auction.title }}" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h4>Description</h4>
+                <p>{{ auction.description }}</p>
+                <h5>Category: {{ auction.category }}</h5>
+                <h5>Starting Price: ${{ auction.starting_price }}</h5>
+                <h5>Status: {{ auction.status }}</h5>
+                <h5>Bids Received: {{ auction.bids_received }}</h5>
+                <h5>Earnings: ${{ auction.earnings }}</h5>
+                <h5>Start Time: {{ auction.start_time }}</h5>
+                <h5>End Time: {{ auction.end_time }}</h5>
+            </div>
+        </div>
+        <a href="/seller" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

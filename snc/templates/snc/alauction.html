@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Auctions</title>
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            letter-spacing: 1px;
+        }
+
+        /* Back Button Styling */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            font-size: 1em;
+            color: #fff;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #1a252f;
+        }
+
+        /* Auction List Styling */
+        .auction-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .auction-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .auction-item:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .auction-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        .auction-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .auction-details p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .auction-details span {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* Time Remaining Styling */
+        .time-remaining {
+            margin-left: auto;
+            padding: 5px 15px;
+            background-color: #f39c12;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            .auction-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .auction-logo {
+                margin-bottom: 10px;
+            }
+
+            .time-remaining {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="back-button">← Back</a>
+
+    <h1>Live Auctions</h1>
+
+    <div class="auction-container">
+        <div class="auction-item">
+            <img src="https://via.placeholder.com/50" alt="Product Logo" class="auction-logo">
+            <div class="auction-details">
+                <p>Product: <strong>Antique Vase</strong></p>
+                <span>Seller: Ravi Sharma</span>
+                <span>Highest Bidder: Anjali Mehta</span>
+            </div>
+            <div class="time-remaining">
+                Time Remaining: 2h 30m
+            </div>
+        </div>
+
+        <div class="auction-item">
+            <img src="https://via.placeholder.com/50" alt="Product Logo" class="auction-logo">
+            <div class="auction-details">
+                <p>Product: <strong>Vintage Watch</strong></p>
+                <span>Seller: Rahul Verma</span>
+                <span>Highest Bidder: Sneha Kapoor</span>
+            </div>
+            <div class="time-remaining">
+                Time Remaining: 5h 15m
+            </div>
+        </div>
+
+        <div class="auction-item">
+            <img src="https://via.placeholder.com/50" alt="Product Logo" class="auction-logo">
+            <div class="auction-details">
+                <p>Product: <strong>Art Deco Lamp</strong></p>
+                <span>Seller: Priya Gupta</span>
+                <span>Highest Bidder: Ravi Sharma</span>
+            </div>
+            <div class="time-remaining">
+                Time Remaining: 1h 50m
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Your Company. All rights reserved.
+    </footer>
+
+</body>
+</html>

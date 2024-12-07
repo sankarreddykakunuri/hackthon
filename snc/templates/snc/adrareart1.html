@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Auction: Classic Art Frame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .auction-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .auction-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .auction-item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .auction-item img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .details {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+        .details h3 {
+            color: #007bff;
+        }
+        .details p {
+            line-height: 1.6;
+        }
+        .auction-timer {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .additional-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="auction-container">
+    <div class="auction-header">
+        <h2>Upcoming Auction: Classic Art Frame</h2>
+    </div>
+    <div class="auction-item">
+        <img src="{% static 'snc/images/rareart1.png' %}" alt="Classic Art Frame">
+        <div class="details">
+            <h3>Product: Classic Art Frame</h3>
+            <p><strong>Description:</strong> This exquisite art frame is designed to enhance the beauty of any rear art painting. Crafted with a premium wood finish, this frame brings a touch of elegance to any space. Ideal for vintage, modern, and abstract art, the frame is designed to highlight intricate details of the painting, making it a must-have for art lovers and collectors.</p>
+            <p><strong>Rear Design:</strong> The rear of the frame includes detailed wood carvings and a secure hanging system that ensures both stability and aesthetic appeal.</p>
+            <p><strong>Start Time:</strong> Tomorrow 12:00 PM</p>
+            <p><strong>End Time:</strong> Tomorrow 3:00 PM</p>
+            <p class="auction-timer">Bidding has not started yet. The auction will begin at 12:00 PM tomorrow.</p>
+
+            <p><strong>Highlights:</strong></p>
+            <ul>
+                <li>Handcrafted from premium walnut wood.</li>
+                <li>Intricate rear wood carving with secure hanging system.</li>
+                <li>Gold-leaf detailing for a luxurious finish.</li>
+                <li>Classic design suitable for all art styles.</li>
+                <li>Perfect size for mid to large rear paintings (24x36 inches).</li>
+                <li>Scratch-resistant and durable finish.</li>
+            </ul>
+
+            <div class="additional-info">
+                <h4>Additional Information</h4>
+                <p><strong>Year Manufactured:</strong> 2021</p>
+                <p><strong>Color:</strong> Dark Walnut with Gold Accents</p>
+                <p><strong>Material:</strong> Walnut Wood, Gold Leaf</p>
+                <p><strong>Size:</strong> 24 x 36 inches</p>
+                <p><strong>Location:</strong> Mumbai, India</p>
+            </div>
+
+            <div class="additional-info">
+                <h4>History of Classic Art Frames</h4>
+                <p>Art frames have long been a key element in enhancing the beauty and value of paintings. Dating back to the Renaissance era, frames were not just functional but were also pieces of art themselves, often handcrafted to complement the painting’s style and origin. Over time, they have evolved to cater to modern and contemporary art, while still preserving their traditional craftsmanship.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Real-Time Auctions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        .back-button-container {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+        }
+        .back-button-container button {
+            color: #fff;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .back-button-container button:hover {
+            background-color: #e65c00;
+        }
+        .container {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Real-Time Auctions</h1>
+    </header>
+
+    <div class="back-button-container">
+        <button onclick="goBack()">← Back</button>
+    </div>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out!</p>
+        <p>Email: <a href="mailto:rta@realtimeauctions.com">rta@realtimeauctions.com</a></p>
+        <p>Phone: +91 555 123 4567</p>
+        <p>Headquarters: 123 Auction Lane, Vijayawada, KLU, ST 520001</p>
+        <h3>Our Offices</h3>
+        <p>Branch Office 1: 456 Bidding Street, Hyderabad, ST 500001</p>
+        <p>Phone: +91 555 987 6543</p>
+        <p>Branch Office 2: 789 Auction Plaza, Bengaluru, ST 560001</p>
+        <p>Phone: +91 555 321 9876</p>
+        <h3>Contacting Us</h3>
+        <p>You can reach out to us via email or phone. Our response time is usually within 24 hours for emails and 1-2 business days for phone inquiries.</p>
+        <p>Our support team is available from 9 AM to 6 PM, Monday to Friday.</p>
+    </div>
+
+    <footer>
+        <p>© 2024 Real-Time Auctions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 100px auto; /* Margin to account for fixed header */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .profile-header img {
+            width: 120px; /* Profile image size */
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            margin-bottom: 10px;
+        }
+
+        .profile-info, .bid-history {
+            margin-bottom: 30px;
+        }
+
+        .profile-info h2, .bid-history h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            color: #007bff;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .bid-history table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .bid-history th, .bid-history td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .bid-history th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Bidding Platform</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/auctions">Auctions</a></li>
+                <li><a href="/account">My Account</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="{% static 'snc/images/profile.png' %}" alt="Profile Image"> <!-- Add a profile image -->
+            <h1>User Profile</h1>
+            <p>Welcome, <strong>Sankar</strong>!</p>
+        </div>
+
+        <div class="profile-info">
+            <h2>Your Information</h2>
+            <p><strong>Name:</strong> Sankar</p>
+            <p><strong>Email:</strong> sankar@gmail.com</p>
+            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Date of Birth:</strong> January 07, 2005 (Age: 19)</p>
+            <p><strong>Join Date:</strong> March 1, 2024</p>
+            <p><strong>Address:</strong> 123, swathi Road, bhavanipuram, Vijayawada, 520001</p>
+        </div>
+
+        <div class="bid-history">
+            <h2>Your Bid History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Auction Item</th>
+                        <th>Your Bid</th>
+                        <th>Bid Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="/auction/1">Luxury Watch</a></td>
+                        <td>Rs 2,500,000</td>
+                        <td>August 20, 2024</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/auction/2">Vintage Car</a></td>
+                        <td>Rs 4,000,000</td>
+                        <td>September 10, 2024</td>
+                        <td>Won</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">No additional bid history available.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Bidding Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Real-Time Auctions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        .back-button-container {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+        }
+        .back-button-container button {
+            color: #fff;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .back-button-container button:hover {
+            background-color: #e65c00;
+        }
+        .container {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+        h3 {
+            color: #ff6600;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .highlight {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Real-Time Auctions</h1>
+    </header>
+
+    <div class="back-button-container">
+        <button onclick="goBack()">← Back</button>
+    </div>
+
+    <div class="container">
+        <h2>About Us</h2>
+        <p>At Real-Time Auctions, we are dedicated to transforming the way people buy and sell items online. Our platform allows users to participate in live auctions, bidding in real-time on a diverse array of exclusive products.</p>
+
+        <div class="highlight">
+            <h3>Our Vision</h3>
+            <p>To become the world's leading online auction platform, renowned for our innovation, integrity, and customer-centric approach.</p>
+        </div>
+
+        <div class="highlight">
+            <h3>Our Mission</h3>
+            <p>To provide a secure, engaging, and seamless auction experience that connects buyers and sellers from around the globe.</p>
+        </div>
+
+        <h3>Core Values</h3>
+        <ul>
+            <li><strong>Integrity:</strong> We operate with honesty and transparency in all our dealings.</li>
+            <li><strong>Innovation:</strong> We continually improve our platform to meet the evolving needs of our users.</li>
+            <li><strong>Customer Focus:</strong> Our customers are at the heart of everything we do.</li>
+            <li><strong>Community:</strong> We strive to build a community where users feel valued and supported.</li>
+        </ul>
+
+        <h3>Our Webpage</h3>
+        <p>Our user-friendly website features:</p>
+        <ul>
+            <li>Intuitive navigation for easy browsing of auctions</li>
+            <li>Real-time bidding updates for a dynamic experience</li>
+            <li>Secure payment gateways to ensure safe transactions</li>
+        </ul>
+
+        <h3>Facilities</h3>
+        <p>Our advanced infrastructure includes:</p>
+        <ul>
+            <li>State-of-the-art technology for seamless auction management</li>
+            <li>A dedicated customer support team available 24/7</li>
+            <li>Regular updates and maintenance to enhance user experience</li>
+        </ul>
+
+        <h3>Achievements</h3>
+        <p>Since our inception, we have reached several milestones:</p>
+        <ul>
+            <li>Conducted over 10,000 successful auctions</li>
+            <li>Recognized for excellence in customer service by industry leaders</li>
+            <li>Built a loyal community of over 100,000 registered users</li>
+        </ul>
+
+        <h3>Future Scope</h3>
+        <p>As we look to the future, our goals include:</p>
+        <ul>
+            <li>Expanding our auction categories to include more diverse products</li>
+            <li>Implementing advanced features such as mobile bidding and AI-driven recommendations</li>
+            <li>Expanding our reach globally, attracting bidders and sellers from different regions</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2024 Real-Time Auctions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

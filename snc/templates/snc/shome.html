@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Adjust to match your theme */
+        }
+        .navbar {
+            background-color: #333; /* Primary color */
+        }
+        .navbar-brand, .nav-link {
+            color: white !important; /* Navbar text color */
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: #343a40; /* Dark footer */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Auction Platform</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/shome">Seller Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="text-center">Seller Dashboard</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <h5 class="card-header">Create Auction</h5>
+                    <div class="card-body">
+                        <form action="/create-auction" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="auctionTitle">Auction Title</label>
+                                <input type="text" class="form-control" id="auctionTitle" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="startTime">Start Time</label>
+                                <input type="datetime-local" class="form-control" id="startTime" name="start_time" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">End Time</label>
+                                <input type="datetime-local" class="form-control" id="endTime" name="end_time" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="startingPrice">Starting Price</label>
+                                <input type="number" class="form-control" id="startingPrice" name="starting_price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control" id="category" name="category" required>
+                                    <option>Art</option>
+                                    <option>Collectibles</option>
+                                    <option>Electronics</option>
+                                    <option>Fashion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Upload Image</label>
+                                <input type="file" class="form-control-file" id="image" name="image">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Auction</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h5>My Auctions</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Auction Title</th>
+                            <th>Status</th>
+                            <th>Bids Received</th>
+                            <th>Earnings</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for auction in auctions %}
+                        <tr>
+                            <td>{{ auction.title }}</td>
+                            <td>{{ auction.status }}</td>
+                            <td>{{ auction.bids_received }}</td>
+                            <td>${{ auction.earnings }}</td>
+                            <td>
+                                <a href="/edit-auction/{{ auction.id }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/view-auction/{{ auction.id }}" class="btn btn-info btn-sm">View</a>
+                                <a href="/close-auction/{{ auction.id }}" class="btn btn-danger btn-sm">Close</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <!-- Example Auctions -->
+                        <tr>
+                            <td>Rolex Watch</td>
+                            <td>Live</td>
+                            <td>5</td>
+                            <td>$2000</td>
+                            <td>
+                                <a href="/edit-auction/1" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/view-auction/1" class="btn btn-info btn-sm">View</a>
+                                <a href="/close-auction/1" class="btn btn-danger btn-sm">Close</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Vintage Camera</td>
+                            <td>Upcoming</td>
+                            <td>2</td>
+                            <td>$800</td>
+                            <td>
+                                <a href="/edit-auction/2" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/view-auction/2" class="btn btn-info btn-sm">View</a>
+                                <a href="/close-auction/2" class="btn btn-danger btn-sm">Close</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer text-center py-3 mt-4">
+        <p>Contact Us | Support | FAQ</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static 'snc/images/auction1st.jpg' %}');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            backdrop-filter: blur(1px);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container select,
+        .login-container button {
+            width: 100%;
+            padding: 8px; /* Set the padding to match all elements */
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; /* Ensures width calculation is consistent */
+        }
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .home {
+            text-align: top;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 0;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .home a {
+            text-decoration: none;
+            color: black;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .register-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="home">
+        <button><a href='/'>← Home</a></button>
+    </div>
+    <div class="login-container">
+        <h2 style="font-family:cursive">Login</h2>
+        <!-- Modify action URL and add CSRF token -->
+        <form action="/login/" method="POST">
+            {% csrf_token %}
+            <label for="role" style="font-family:cursive"><b>Login as:</b></label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="seller">Seller</option>
+                <option value="bidder">Bidder</option>
+                <option value="guest">Guest</option>
+            </select>
+            <label for="username" style="font-family:cursive"><b>Username:</b></label>
+            <input type="text" id="username" name="username" required>
+            <label for="password" style="font-family:cursive"><b>Password:</b></label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href='/register'>Register</a></p>
+        </div>
+    </div>
+</body>
+</html>
